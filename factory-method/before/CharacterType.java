@@ -1,4 +1,4 @@
-public enum CharacterType{
+public enum CharacterType {
   KNIGHT,
   TROLL,
   ORCH

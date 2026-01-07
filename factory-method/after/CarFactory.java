@@ -1,36 +1,48 @@
-class Main{
-  public static void main(String[] args){
+class Main {
+  public static void main(String[] args) {
     CarFactory cf = new VolvoFactory();
     System.out.println(cf.createCar());
     cf = new BMWFactory();
     System.out.println(cf.createCar());
   }
 }
-abstract class Car{}
-class Volvo extends Car{
-  @Override
-  public String toString(){ return "Volvo"; }
+
+abstract class Car {
 }
-class BMW extends Car{
+
+class Volvo extends Car {
   @Override
-  public String toString(){ return "BMW"; }
+  public String toString() {
+    return "Volvo";
+  }
 }
-class VolvoFactory extends CarFactory{
+
+class BMW extends Car {
   @Override
-  protected Car makeIt(){
+  public String toString() {
+    return "BMW";
+  }
+}
+
+class VolvoFactory extends CarFactory {
+  @Override
+  protected Car makeIt() {
     return new Volvo();
   }
 }
-class BMWFactory extends CarFactory{
+
+class BMWFactory extends CarFactory {
   @Override
-  protected Car makeIt(){
+  protected Car makeIt() {
     return new BMW();
   }
 }
-public abstract class CarFactory{
+
+public abstract class CarFactory {
   // Virtual method
-  public Car createCar(){
+  public Car createCar() {
     return makeIt();
   }
+
   protected abstract Car makeIt();
 }
